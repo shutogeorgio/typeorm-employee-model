@@ -1,0 +1,23 @@
+# docker-compose.yml for setting up mysql env
+version: '3'
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: typeorm_tuto
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports: 
+      - 3306:3306
+
+  # If you need, you can use admin pannel
+
+  # adminer:
+  #  image: adminer
+  #  restart: always
+  #  ports:
+  #    - 8080:8080
